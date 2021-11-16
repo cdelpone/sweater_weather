@@ -1,0 +1,58 @@
+##### converting dt
+date = weather_data[:daily][0]
+date_time = date[:dt] => 1637085600
+Time.at(date_time) => 2021-11-16 11:00:00 -0700
+
+####### expected response
+      {
+          lat: 39.7385,
+          lon: -104.9849,
+          timezone: "America/Denver",
+          timezone_offset: -25200,
+          current: {
+              dt: 1637083722,
+              sunrise: 1637070369,
+              sunset: 1637106221,
+              temp: 291.18,
+              feels_like: 289.67,
+              humidity: 24,
+              uvi: 1.31,
+              visibility: 10000,
+              weather: [
+                  {
+                      description: "overcast clouds",
+                      icon: "04d"
+                  }
+              ]
+          },
+          hourly: [
+              {
+                  dt: 1637082000,
+                  temp: 291.18,
+                  weather: [
+                      {
+                          description: "overcast clouds",
+                          icon: "04d"
+                      }
+                  ],
+              }
+          ],
+          daily: [
+              {
+                  dt: 1637085600,
+                  sunrise: 1637070369,
+                  sunset: 1637106221,
+                  temp: {
+                      min: 281.37,
+                      max: 292.8,
+                  },
+                  weather: [
+                      {
+                          description: "overcast clouds",
+                          icon: "04d"
+                      }
+                  ],
+              },
+
+          ]
+      }
