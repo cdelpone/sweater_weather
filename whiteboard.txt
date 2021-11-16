@@ -4,55 +4,105 @@ date_time = date[:dt] => 1637085600
 Time.at(date_time) => 2021-11-16 11:00:00 -0700
 
 ####### expected response
-      {
-          lat: 39.7385,
-          lon: -104.9849,
-          timezone: "America/Denver",
-          timezone_offset: -25200,
-          current: {
-              dt: 1637083722,
-              sunrise: 1637070369,
-              sunset: 1637106221,
-              temp: 291.18,
-              feels_like: 289.67,
-              humidity: 24,
-              uvi: 1.31,
-              visibility: 10000,
-              weather: [
-                  {
-                      description: "overcast clouds",
-                      icon: "04d"
-                  }
-              ]
-          },
-          hourly: [
-              {
-                  dt: 1637082000,
-                  temp: 291.18,
-                  weather: [
-                      {
-                          description: "overcast clouds",
-                          icon: "04d"
-                      }
-                  ],
-              }
-          ],
-          daily: [
-              {
-                  dt: 1637085600,
-                  sunrise: 1637070369,
-                  sunset: 1637106221,
-                  temp: {
-                      min: 281.37,
-                      max: 292.8,
-                  },
-                  weather: [
-                      {
-                          description: "overcast clouds",
-                          icon: "04d"
-                      }
-                  ],
-              },
+ {
+   "data": {
+     "id": null,
+     "type": "forecast",
+     "attributes": {
+       "current_weather": {
+         "datetime": "2020-09-30 13:27:03 -0600",
+         "temperature": 79.4,
+         etc
+       },
+       "daily_weather": [
+         {
+           "date": "2020-10-01",
+           "sunrise": "2020-10-01 06:10:43 -0600",
+           etc
+         },
+       ],
+       "hourly_weather": [
+         {
+           "time": "14:00:00",
+           "conditions": "cloudy with a chance of meatballs",
+           etc
+         },
+       ]
+     }
+   }
+ }
 
-          ]
-      }
+####### open weather api response
+{
+    lat: 39.7385,
+    lon: -104.9849,
+    timezone: "America/Denver",
+    timezone_offset: -25200,
+    current: {
+        dt: 1637083722,
+        sunrise: 1637070369,
+        sunset: 1637106221,
+        temp: 291.18,
+        feels_like: 289.67,
+        humidity: 24,
+        uvi: 1.31,
+        visibility: 10000,
+        weather: [
+            {
+                description: "overcast clouds",
+                icon: "04d"
+            }
+        ]
+    },
+    hourly: [
+        {
+            dt: 1637082000,
+            temp: 291.18,
+            weather: [
+                {
+                    description: "overcast clouds",
+                    icon: "04d"
+                }
+            ],
+        }
+    ],
+    daily: [
+        {
+            dt: 1637085600,
+            sunrise: 1637070369,
+            sunset: 1637106221,
+            temp: {
+                min: 281.37,
+                max: 292.8,
+            },
+            weather: [
+                {
+                    description: "overcast clouds",
+                    icon: "04d"
+                }
+            ],
+        },
+    ]
+}
+###### misc methods
+Hourly.new(weather_data)
+Daily.new(weather_data)
+current_weather(weather_data)
+hourly_weather(weather_data)
+daily_weather(weather_data)
+
+def current_weather(weather_data)
+ current_data = {
+                 date_time: weather_data[:current][:dt],
+                 sunrise: weather_data[:current][:sunrise],
+                 sunset: weather_data[:current][:sunset],
+                 temp: weather_data[:current][:temp],
+                 feels_like: weather_data[:current][:feels_like],
+                 humidity: weather_data[:current][:humidity],
+                 uvi: weather_data[:current][:uvi],
+                 visibility: weather_data[:current][:visibility],
+                 weather: weather_data[:current][:weather],
+                 conditions: weather_data[:current][:weather][0][:description],
+                 icon: weather_data[:current][:weather][0][:icon]
+               }
+end

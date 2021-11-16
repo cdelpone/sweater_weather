@@ -1,6 +1,6 @@
 class WeatherService
   class << self
-    def weather_data(lat,lon)
+    def weather_data(lat, lon)
       conn = Faraday.new(url: 'https://api.openweathermap.org')
 
       response = conn.get('/data/2.5/onecall') do |faraday|
@@ -8,6 +8,7 @@ class WeatherService
         faraday.params['lat'] = lat
         faraday.params['lon'] = lon
         faraday.params['exclude'] = 'minutely'
+        faraday.params['units'] = 'imperial'
       end
 
       JSON.parse(response.body, symbolize_names: true)

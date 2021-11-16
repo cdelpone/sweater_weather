@@ -22,6 +22,7 @@ RSpec.describe 'MapQuestService' do
     expect(locations_data[:locations][0][:latLng]).to be_a Hash
 
     lat_lng = locations_data[:locations][0][:latLng]
+
     expect(lat_lng).to be_a Hash
     expect(lat_lng).to have_key(:lat)
     expect(lat_lng).to have_key(:lng)
