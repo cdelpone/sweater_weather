@@ -21,7 +21,7 @@ RSpec.describe Current do
     location = 'Denver,CO'
     current = Current.new(current_data)
 
-    expect(current.date_time).to eq('2021-11-16 10:28:42.000000000 -0700')
+    expect(current.datetime).to eq('2021-11-16 10:28:42.000000000 -0700')
     expect(current.sunrise).to eq('2021-11-16 06:46:09.000000000 -0700')
     expect(current.sunset).to eq('2021-11-16 16:43:41.000000000 -0700')
     expect(current.temperature).to eq(291.18)

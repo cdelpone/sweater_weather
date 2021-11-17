@@ -1,5 +1,5 @@
 class Current
-  attr_reader :date_time,
+  attr_reader :datetime,
               :sunrise,
               :sunset,
               :temperature,
@@ -12,7 +12,7 @@ class Current
               :icon
 
   def initialize(data)
-    @date_time = Time.at(data[:dt])
+    @datetime = Time.at(data[:dt])
     @sunrise = Time.at(data[:sunrise])
     @sunset = Time.at(data[:sunset])
     @temperature = data[:temp]
@@ -23,5 +23,4 @@ class Current
     @conditions = data[:weather][0][:description]
     @icon = data[:weather][0][:icon]
   end
-
 end
