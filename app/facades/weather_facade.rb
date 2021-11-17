@@ -7,16 +7,9 @@ class WeatherFacade
     end
 
     def attributes(weather_data)
-      {
-        data: {
-                id: nil,
-                type: 'forecast',
-                attributes: {
-                    current_weather: Current.new(weather_data[:current]),
-                    hourly_weather: hourly_weather(weather_data[:hourly]),
-                    daily_weather: daily_weather(weather_data[:daily]),
-                    }
-            }
+      { current_weather: Current.new(weather_data[:current]),
+        hourly_weather: hourly_weather(weather_data[:hourly]),
+        daily_weather: daily_weather(weather_data[:daily]),
       }
     end
 
