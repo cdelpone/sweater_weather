@@ -8,7 +8,7 @@ RSpec.describe 'BreweriesFacade', :vcr do
 
   it 'returns 5 breweries with only id name and type' do
     brewery_call = BreweriesService.brewery_data(@city)
-    brewery = BreweriesFacade.brewery(brewery_data)
+    brewery = BreweriesFacade.brewery(brewery_call)
 
     expect(brewery).to be_an Array
 
