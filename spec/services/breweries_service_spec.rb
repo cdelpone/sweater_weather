@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'BreweriesService' do
-  it 'can get all brewery data for a given location' do
+  it 'can get all brewery data for a given city and state' do
     city = 'Denver'
     state = 'CO'
 
