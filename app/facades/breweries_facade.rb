@@ -6,26 +6,25 @@ class BreweriesFacade
       brewery_data = BreweriesService.brewery_data(city)
       location_data = MapQuestFacade.get_lat_lng(location)
       weather_data = WeatherService.weather_data(location_data.latitude, location_data.longitude)
-      provided_location = location_data.provided_location
-      attributes(weather_data, provided_location)
+      attributes(weather_data, brewery_params)
     end
 
-    def brewery_data(brewery_data)
+    def brewery(brewery_data)
       brewery_data.map do |data|
         Brewery.new(data)
       end
     end
 
-    def attributes(weather_data, provided_location, brewery_data)
+    def attributes(weather_data, brewery_params, brewery_data)
       null = nil
       {
         data: {
                 id: nil,
                 type: 'breweries',
                 attributes: {
-                    destination: provided_location,
-                    forecast: forecast,
-                    breweries: brewery_data(brewery_data).take(quantity)
+                    destination: brewery_params[:location],
+                    forecast: forecast(weather_data),
+                    breweries: brewery(brewery_data).take(brewery_params[:quantity])
                     }
             }
       }
@@ -35,7 +34,7 @@ class BreweriesFacade
       current_weather = weather_data[:data][:attributes][:current_weather]
       {
         summary: current_weather.conditions,
-        temperature: current_weather.temperature
+        temperature: "#{current_weather.temperature} F"
       }
     end
   end

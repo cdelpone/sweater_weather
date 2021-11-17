@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'BreweriesFacade' do
   it 'returns 5 breweries with only id name and type' do
-    # location = 'Denver,CO'
-    quantity = 5
     city = 'Denver'
     brewery_data = BreweriesService.brewery_data(city)
-    result = BreweriesFacade.brewery_data(brewery_data)
+    result = BreweriesFacade.brewery(brewery_data)
 
     expect(result).to be_an Array
 
@@ -21,8 +19,19 @@ RSpec.describe 'BreweriesFacade' do
     brewery_params = { location: 'Denver, CO', quantity: 5 }
     weather_data = WeatherFacade.get_weather_data(brewery_params[:location])
     result = BreweriesFacade.forecast(weather_data)
-    require "pry"; binding.pry
-    expect(result).to eq('')
+    expect(result).to be_a Hash
+  end
+
+  it 'returns expected hash' do
+    city = 'Denver'
+    brewery_params = { location: 'Denver, CO', quantity: 5 }
+    weather_data = WeatherFacade.get_weather_data(brewery_params[:location])
+    brewery_data = BreweriesService.brewery_data(city)
+    data = BreweriesFacade.brewery(brewery_data)
+
+    result = BreweriesFacade.attributes(weather_data, brewery_params, brewery_data)
+
+    expect(result).to be_a Hash
   end
 end
 # {
