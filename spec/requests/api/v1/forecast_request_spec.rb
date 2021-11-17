@@ -10,7 +10,6 @@ RSpec.describe 'ForecastController' do
   end
 
   it 'returns expected hash' do
-    # nil = null
     null = nil
     location = 'Denver,CO'
 

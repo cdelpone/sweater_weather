@@ -7,6 +7,7 @@ class WeatherFacade
     end
 
     def attributes(weather_data)
+
       data = {
               current_weather: Current.new(weather_data[:current]),
               hourly_weather: hourly_weather(weather_data[:hourly]),
@@ -15,7 +16,7 @@ class WeatherFacade
     end
 
     def hourly_weather(weather_data)
-      asd = weather_data[0..7].map do |data|
+      weather_data[0..7].map do |data|
         Hourly.new(data)
       end
     end
