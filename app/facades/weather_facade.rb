@@ -7,7 +7,7 @@ class WeatherFacade
     end
 
     def attributes(weather_data)
-      null = nil
+      # null = nil
       {
         data: {
                 id: nil,

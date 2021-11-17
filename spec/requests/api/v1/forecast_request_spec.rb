@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'ForecastController', :vcr do
   it 'makes a successful call' do
-    location = 'Denver,CO'
+    location = 'denver,CO'
 
     get "/api/v1/forecast?location=#{location}"
 
     expect(response).to be_successful
-
     forecast_data = JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -16,11 +15,11 @@ RSpec.describe 'ForecastController', :vcr do
     location = 'Denver,CO'
     get "/api/v1/forecast?location=#{location}"
     forecast_data = JSON.parse(response.body, symbolize_names: true)
+    require "pry"; binding.pry
     expect(forecast_data).to be_a Hash
   end
 
   it 'does not return unnecessary data' do
-
   end
 end
 # expected = { :data => {
