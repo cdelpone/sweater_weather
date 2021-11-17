@@ -5,7 +5,7 @@ RSpec.describe 'BreweriesService' do
     city = 'Denver'
     state = 'CO'
 
-    brewery_data = BreweriesService.brewery_data(city, state)
+    brewery_data = BreweriesService.brewery_data(city)
 
     expect(brewery_data).to be_an Array
     expect(brewery_data[0]).to be_a Hash

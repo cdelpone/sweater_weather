@@ -1,6 +1,6 @@
 class WeatherFacade
   class << self
-    def  get_weather_data(location)
+    def get_weather_data(location)
       location_data = MapQuestFacade.get_lat_lng(location)
       weather_data = WeatherService.weather_data(location_data.latitude, location_data.longitude)
       attributes(weather_data)
