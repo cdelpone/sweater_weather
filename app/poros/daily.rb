@@ -1,5 +1,5 @@
 class Daily
-  attr_reader :date_time,
+  attr_reader :date,
               :sunrise,
               :sunset,
               :min_temp,
@@ -8,7 +8,7 @@ class Daily
               :icon
 
   def initialize(data)
-    @date_time = Time.at(data[:dt])
+    @date = Time.at(data[:dt]).strftime("%Y-%m-%d")
     @sunrise = Time.at(data[:sunrise])
     @sunset = Time.at(data[:sunset])
     @min_temp = data[:temp][:min]

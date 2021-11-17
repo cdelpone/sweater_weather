@@ -21,7 +21,7 @@ RSpec.describe Daily do
 
     daily = Daily.new(daily_data)
 
-    expect(daily.date_time).to eq('2021-11-16 11:00:00 -0700')
+    expect(daily.date).to eq('2021-11-16')
     expect(daily.sunrise).to eq('2021-11-16 06:46:09.000000000 -0700')
     expect(daily.sunset).to eq('2021-11-16 16:43:41.000000000 -0700')
     expect(daily.min_temp).to eq(281.37)
