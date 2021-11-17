@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -31,6 +32,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -68,4 +71,16 @@ RSpec.configure do |config|
   #     with.library :rails
   #   end
   # end
+
+  VCR.configure do |c|
+    c.cassette_library_dir = 'spec/vcr'
+    c.hook_into :webmock
+    c.configure_rspec_metadata!
+    c.filter_sensitive_data('<key>') { ENV['MAPQUEST_KEY'] }
+    c.filter_sensitive_data('<appid>') { ENV['OPEN_WEATHER_KEY'] }
+    c.default_cassette_options = { re_record_interval: 7.days }
+    c.default_cassette_options = {
+      match_requests_on: %i[method host path]
+    }
+  end
 end

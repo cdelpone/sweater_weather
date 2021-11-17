@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'WeatherFacade' do
+RSpec.describe 'WeatherFacade', :vcr do
   it 'returns all weather data with given lat lon' do
     location = 'Denver,CO'
     # location_data = MapQuestFacade.get_lat_lng(location)

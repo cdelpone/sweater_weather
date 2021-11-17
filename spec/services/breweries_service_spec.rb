@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'BreweriesService' do
+RSpec.describe 'BreweriesService', :vcr do
   it 'can get all brewery data for a given city and state' do
     city = 'Denver'
-    state = 'CO'
 
     brewery_data = BreweriesService.brewery_data(city)
 

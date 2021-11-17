@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'MapQuestFacade' do
+RSpec.describe 'MapQuestFacade', :vcr do
   it 'returns all location data' do
     location = 'Denver,CO'
     #break out into two tests
