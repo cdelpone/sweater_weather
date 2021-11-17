@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'BreweriesFacade' do
+RSpec.describe 'BreweriesFacade', :vcr do
   before :each do
     @brewery_params = { location: 'Denver, CO', quantity: 5 }
     @city = 'Denver'

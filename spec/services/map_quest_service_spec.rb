@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'MapQuestService' do
+RSpec.describe 'MapQuestService', :vcr do
   it 'can get all map quest data for a given location' do
     location = 'Denver,CO'
 

@@ -1,11 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'rspec/rails'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -76,8 +76,8 @@ RSpec.configure do |config|
     c.cassette_library_dir = 'spec/vcr'
     c.hook_into :webmock
     c.configure_rspec_metadata!
-    c.filter_sensitive_data('<KEY>') { ENV['MAPQUEST_KEY'] }
-    c.filter_sensitive_data('<APPID>') { ENV['OPEN_WEATHER_KEY'] }
+    c.filter_sensitive_data('<key>') { ENV['MAPQUEST_KEY'] }
+    c.filter_sensitive_data('<appid>') { ENV['OPEN_WEATHER_KEY'] }
     c.default_cassette_options = { re_record_interval: 7.days }
     c.default_cassette_options = {
       match_requests_on: %i[method host path]

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'WeatherService' do
+RSpec.describe 'WeatherService', :vcr do
   before :each do
     lat = 39.738453
     lon = -104.984853

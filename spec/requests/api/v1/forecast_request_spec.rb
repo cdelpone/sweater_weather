@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ForecastController' do
+RSpec.describe 'ForecastController', :vcr do
   it 'makes a successful call' do
     location = 'Denver,CO'
 
