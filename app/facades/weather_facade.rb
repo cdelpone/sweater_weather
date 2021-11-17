@@ -7,12 +7,18 @@ class WeatherFacade
     end
 
     def attributes(weather_data)
-
-      data = {
-              current_weather: Current.new(weather_data[:current]),
-              hourly_weather: hourly_weather(weather_data[:hourly]),
-              daily_weather: daily_weather(weather_data[:daily]),
+      null = nil
+      {
+        data: {
+                id: nil,
+                type: 'forecast',
+                attributes: {
+                    current_weather: Current.new(weather_data[:current]),
+                    hourly_weather: hourly_weather(weather_data[:hourly]),
+                    daily_weather: daily_weather(weather_data[:daily]),
+                    }
             }
+      }
     end
 
     def hourly_weather(weather_data)
@@ -26,5 +32,21 @@ class WeatherFacade
         Daily.new(data)
       end
     end
+
+    # def current_weather(weather_data)
+    #   {
+    #     date_time: weather_data[:dt],
+    #     sunrise: weather_data[:sunrise],
+    #     sunset: weather_data[:sunset],
+    #     temp: weather_data[:temp],
+    #     feels_like: weather_data[:feels_like],
+    #     humidity: weather_data[:humidity],
+    #     uvi: weather_data[:uvi],
+    #     visibility: weather_data[:visibility],
+    #     weather: weather_data[:weather],
+    #     conditions: weather_data[:weather][0][:description],
+    #     icon: weather_data[:weather][0][:icon]
+    #   }
+    # end
   end
 end
