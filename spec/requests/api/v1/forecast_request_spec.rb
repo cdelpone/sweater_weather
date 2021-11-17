@@ -26,7 +26,7 @@ RSpec.describe 'ForecastController', :vcr do
     expect(forecast_data[:daily_weather].size).to eq(5)
     current_weather = forecast_data[:current_weather]
     expect(current_weather).to be_a Hash
-    expect(current_weather).to have_key(:date_time)
+    expect(current_weather).to have_key(:datetime)
     expect(current_weather).to have_key(:sunrise)
     expect(current_weather).to have_key(:sunset)
     expect(current_weather).to have_key(:temperature)
@@ -40,7 +40,7 @@ RSpec.describe 'ForecastController', :vcr do
 
     hourly_weather = forecast_data[:hourly_weather][0]
     expect(hourly_weather).to be_a Hash
-    expect(hourly_weather).to have_key(:date_time)
+    expect(hourly_weather).to have_key(:time)
     expect(hourly_weather).to have_key(:temperature)
     expect(hourly_weather).not_to have_key(:weather)
     expect(hourly_weather).to have_key(:conditions)
@@ -49,7 +49,7 @@ RSpec.describe 'ForecastController', :vcr do
 
     daily_weather = forecast_data[:daily_weather][0]
     expect(daily_weather).to be_a Hash
-    expect(daily_weather).to have_key(:date_time)
+    expect(daily_weather).to have_key(:date)
     expect(daily_weather).to have_key(:sunrise)
     expect(daily_weather).to have_key(:sunset)
 

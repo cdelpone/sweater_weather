@@ -30,7 +30,7 @@ class BreweriesFacade
     end
 
     def forecast(weather_data)
-      current_weather = weather_data[:data][:attributes][:current_weather]
+      current_weather = weather_data[:current_weather]
       {
         summary: current_weather.conditions,
         temperature: "#{current_weather.temperature} F"

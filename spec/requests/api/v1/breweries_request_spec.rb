@@ -14,7 +14,6 @@ RSpec.describe 'BreweriesController', :vcr do
     first_brewery = nearby_breweries[:data][:attributes][:breweries].first
 
     # expect(response.body).to be_a JSON
-
     # {:data=>
     #   {:id=>nil,
     #    :type=>"breweries",
