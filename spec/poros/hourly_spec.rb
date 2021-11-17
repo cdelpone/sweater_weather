@@ -16,7 +16,7 @@ RSpec.describe Hourly do
 
     hourly = Hourly.new(hourly_data)
 
-    expect(hourly.date_time).to eq('2021-11-16 10:00:00.000000000 -0700')
+    expect(hourly.time).to eq('10:00')
     expect(hourly.temperature).to eq(291.18)
     expect(hourly.conditions).to eq("overcast clouds")
     expect(hourly.icon).to eq("04d")
