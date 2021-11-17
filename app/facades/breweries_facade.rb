@@ -2,11 +2,10 @@ class BreweriesFacade
   class << self
     def  get_brewery_data(brewery_params)
       city = brewery_params[:location].split(',').first
-      quantity = brewery_params[:quantity]
       brewery_data = BreweriesService.brewery_data(city)
-      location_data = MapQuestFacade.get_lat_lng(location)
-      weather_data = WeatherService.weather_data(location_data.latitude, location_data.longitude)
-      attributes(weather_data, brewery_params)
+      location_data = MapQuestFacade.get_lat_lng(brewery_params[:location])
+      weather_data = WeatherFacade.get_weather_data(brewery_params[:location])
+      attributes(weather_data, brewery_params, brewery_data)
     end
 
     def brewery(brewery_data)
@@ -24,7 +23,7 @@ class BreweriesFacade
                 attributes: {
                     destination: brewery_params[:location],
                     forecast: forecast(weather_data),
-                    breweries: brewery(brewery_data).take(brewery_params[:quantity])
+                    breweries: brewery(brewery_data).take(brewery_params[:quantity].to_i)
                     }
             }
       }
