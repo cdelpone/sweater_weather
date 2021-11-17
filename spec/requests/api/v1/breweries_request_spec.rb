@@ -12,35 +12,6 @@ RSpec.describe 'BreweriesController', :vcr do
 
     nearby_breweries = BreweriesFacade.get_brewery_data(@brewery_params)
     first_brewery = nearby_breweries[:data][:attributes][:breweries].first
-
-    # expect(response.body).to be_a JSON
-    # {:data=>
-    #   {:id=>nil,
-    #    :type=>"breweries",
-    #    :attributes=>
-    #     {:destination=>"Denver, CO",
-    #      :forecast=>{:summary=>"broken clouds", :temperature=>"33.3 F"},
-    #      :breweries=>
-    #       [#<Brewery:0x0000000107dff428
-    #         @brewery_type="large",
-    #         @id="10-barrel-brewing-co-denver-denver",
-    #         @name="10 Barrel Brewing Co - Denver">,
-    #        #<Brewery:0x0000000107dff400
-    #         @brewery_type="proprietor",
-    #         @id="14er-brewing-company-denver",
-    #         @name="14er Brewing Company">,
-    #        #<Brewery:0x0000000107dff3d8
-    #         @brewery_type="planning",
-    #         @id="aero-craft-brewing-denver",
-    #         @name="Aero Craft Brewing">,
-    #        #<Brewery:0x0000000107dff3b0
-    #         @brewery_type="micro",
-    #         @id="alpine-dog-brewing-co-denver",
-    #         @name="Alpine Dog Brewing Co">,
-    #        #<Brewery:0x0000000107dff388
-    #         @brewery_type="micro",
-    #         @id="alternation-brewing-company-denver",
-    #         @name="Alternation Brewing Company">]}}}
   end
 
   it 'gets all brewery data' do

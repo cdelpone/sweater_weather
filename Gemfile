@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -32,8 +32,6 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'figaro'
-  gem 'factory_bot_rails'
-  gem 'faker'
   # gem 'capybara'
   # gem 'launchy'
   # gem 'shoulda-matchers'
@@ -43,8 +41,8 @@ end
 group :test do
   gem 'webmock'
   gem 'vcr'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  # gem 'factory_bot_rails'
+  # gem 'faker'
 end
 
 group :development do
