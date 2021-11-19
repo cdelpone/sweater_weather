@@ -15,7 +15,7 @@ class BreweriesFacade
     end
 
     def attributes(weather_data, brewery_params, brewery_data)
-      null = nil
+      # null = nil
       {
         data: {
                 id: nil,

@@ -77,6 +77,7 @@ RSpec.configure do |config|
     c.configure_rspec_metadata!
     c.filter_sensitive_data('<key>') { ENV['MAPQUEST_KEY'] }
     c.filter_sensitive_data('<appid>') { ENV['OPEN_WEATHER_KEY'] }
+    c.filter_sensitive_data('<clientid>') { ENV['UNSPLASH_KEY'] }
     c.default_cassette_options = { re_record_interval: 7.days }
     c.default_cassette_options = {
       match_requests_on: %i[method host path]
