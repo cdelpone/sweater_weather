@@ -3,19 +3,27 @@ class WeatherFacade
     def get_weather_data(location)
       location_data = MapQuestFacade.get_lat_lng(location)
       weather_data = WeatherService.weather_data(location_data.latitude, location_data.longitude)
-
-      # Current.new(weather_data)
-      # Hourly.new(weather_data)
-      # Daily.new(weather_data)
-
-        # attributes(weather_data)
+      create_poros(weather_data)
     end
 
-    def attributes(weather_data)
-      { current_weather: Current.new(weather_data[:current]),
-        hourly_weather: hourly_weather(weather_data[:hourly]),
-        daily_weather: daily_weather(weather_data[:daily]),
+    def create_poros(weather_data)
+      {
+        current: Current.new(weather_data[:current]),
+        daily: daily_weather(weather_data),
+        hourly: hourly_weather(weather_data)
       }
+    end
+
+    def daily_weather(weather_data)
+      weather_data[:daily][0..4].map do |data|
+        Day.new(data)
+      end
+    end
+
+    def hourly_weather(weather_data)
+      weather_data[:hourly][0..7].map do |data|
+        Hour.new(data)
+      end
     end
   end
 end

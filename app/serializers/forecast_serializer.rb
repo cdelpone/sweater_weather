@@ -1,8 +1,29 @@
 class ForecastSerializer
   class << self
-    def serialize(location)
-      weather_data = WeatherFacade.get_weather_data(location)
-require "pry"; binding.pry
+    def serialize(weather_data)
+      {
+        data: {
+                  id: null,
+                  type: forecast,
+                  attributes: {
+                      current_weather:
+                        {
+                          weather_data[:current]
+                        },
+                      daily_weather: [
+                        {
+                          weather_data[:daily]
+                        }
+                      ],
+                      hourly_weather: [
+                        {
+                          weather_data[:hourly]
+                        }
+                      ]
+                  }
+                }
+      }
+      require "pry"; binding.pry
       #pass in objects to format for json
       #current_weather.temperature
         {
@@ -10,19 +31,6 @@ require "pry"; binding.pry
           hourly_weather: weather_data[:hourly_weather],
           daily_weather: weather_data[:daily_weather]
         }.to_json
-
-    end
-
-    def hourly_weather(weather_data)
-      weather_data[0..7].map do |data|
-        Hourly.new(data)
-      end
-    end
-
-    def daily_weather(weather_data)
-      weather_data[0..4].map do |data|
-        Daily.new(data)
-      end
     end
   end
 end

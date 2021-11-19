@@ -4,8 +4,7 @@ RSpec.describe 'WeatherFacade', :vcr do
   it 'returns all weather data' do
     location = 'Denver,CO'
     result = WeatherFacade.get_weather_data(location)
-    require "pry"; binding.pry
-    expect(result).to be_a Hash
+    expect(result).to be_an Array
     # expect(result.size).to eq(3)
     # expect(result).to have_key :current_weather
     # expect(result).to have_key :hourly_weather
@@ -13,7 +12,7 @@ RSpec.describe 'WeatherFacade', :vcr do
   end
 
   xit 'returns a hash with current, hourly, and daily weather data' do
-    location = 'Denver,CO'
+    location = 'Denv\er,CO'
     location_data = MapQuestFacade.get_lat_lng(location)
     weather_data = WeatherService.weather_data(location_data.latitude, location_data.longitude)
     result = WeatherFacade.attributes(weather_data)
