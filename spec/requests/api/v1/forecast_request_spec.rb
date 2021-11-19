@@ -9,6 +9,7 @@ RSpec.describe 'ForecastController', :vcr do
     @hourly_weather = @forecast_data[:hourly_weather][0]
     @daily_weather = @forecast_data[:daily_weather][0]
   end
+
   it 'makes a successful call' do
     expect(response).to be_successful
   end

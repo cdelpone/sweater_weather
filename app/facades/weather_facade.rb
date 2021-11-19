@@ -9,18 +9,18 @@ class WeatherFacade
     def create_poros(weather_data)
       {
         current: Current.new(weather_data[:current]),
-        daily: daily_weather(weather_data),
-        hourly: hourly_weather(weather_data)
+        daily: daily_weather_poro(weather_data),
+        hourly: hourly_weather_poro(weather_data)
       }
     end
 
-    def daily_weather(weather_data)
+    def daily_weather_poro(weather_data)
       weather_data[:daily][0..4].map do |data|
         Day.new(data)
       end
     end
 
-    def hourly_weather(weather_data)
+    def hourly_weather_poro(weather_data)
       weather_data[:hourly][0..7].map do |data|
         Hour.new(data)
       end
