@@ -19,11 +19,11 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 20 Nov 2021 21:26:43 GMT
+      - Sat, 20 Nov 2021 21:26:38 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1733'
+      - '1735'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -35,13 +35,13 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Sat, 20 Nov 2021 21:26:43 GMT
+      - Sat, 20 Nov 2021 21:26:38 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
       - '0'
       Set-Cookie:
-      - JSESSIONID=52C59B4F534C9C430D22B26E69B92A15; Path=/; HttpOnly
+      - JSESSIONID=ABF113AD5CBD606133966B2ECC3D6F2D; Path=/; HttpOnly
       Status:
       - success
       Transactionweight:
@@ -51,9 +51,9 @@ http_interactions:
       string: '{"info":{"statuscode":0,"copyright":{"text":"\u00A9 2021 MapQuest,
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"Denver,CO"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Denver","adminArea5Type":"City","adminArea4":"Denver
-        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282041090","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-1&scalebar=true&zoom=12&rand=586654430"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"Denver
-        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A4XAX","geocodeQuality":"COUNTY","dragPoint":false,"sideOfStreet":"N","linkId":"282932003","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-2&scalebar=true&zoom=9&rand=1536751374"}]}]}'
-  recorded_at: Sat, 20 Nov 2021 21:26:43 GMT
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282041090","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-2083876083"},{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"","adminArea5Type":"City","adminArea4":"Denver
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A4XAX","geocodeQuality":"COUNTY","dragPoint":false,"sideOfStreet":"N","linkId":"282932003","unknownInput":"","type":"s","latLng":{"lat":39.738453,"lng":-104.984853},"displayLatLng":{"lat":39.738453,"lng":-104.984853},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<key>&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-2&scalebar=true&zoom=9&rand=-727041813"}]}]}'
+  recorded_at: Sat, 20 Nov 2021 21:26:38 GMT
 - request:
     method: get
     uri: https://api.openweathermap.org/data/2.5/onecall?appid=<appid>&exclude=minutely&lat=39.738453&lon=-104.984853&units=imperial
@@ -75,7 +75,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Sat, 20 Nov 2021 21:26:43 GMT
+      - Sat, 20 Nov 2021 21:26:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -150,5 +150,5 @@ http_interactions:
         sky","icon":"01d"}],"clouds":0,"pop":0,"uvi":3},{"dt":1637949600,"sunrise":1637935035,"sunset":1637969872,"moonrise":1637993100,"moonset":1637955540,"moon_phase":0.73,"temp":{"day":54.46,"min":43.36,"max":58.96,"night":46.02,"eve":54.25,"morn":45.34},"feels_like":{"day":50.45,"night":46.02,"eve":50.54,"morn":41.94},"pressure":1020,"humidity":18,"dew_point":12.24,"wind_speed":8.25,"wind_deg":214,"wind_gust":15.75,"weather":[{"id":804,"main":"Clouds","description":"overcast
         clouds","icon":"04d"}],"clouds":99,"pop":0,"uvi":3},{"dt":1638036000,"sunrise":1638021499,"sunset":1638056248,"moonrise":0,"moonset":1638043680,"moon_phase":0.75,"temp":{"day":48.96,"min":42.78,"max":53.17,"night":44.19,"eve":49.69,"morn":44.22},"feels_like":{"day":48.96,"night":44.19,"eve":47.25,"morn":42.26},"pressure":1023,"humidity":30,"dew_point":18.95,"wind_speed":6.11,"wind_deg":66,"wind_gust":11.16,"weather":[{"id":803,"main":"Clouds","description":"broken
         clouds","icon":"04d"}],"clouds":51,"pop":0,"uvi":3}]}'
-  recorded_at: Sat, 20 Nov 2021 21:26:43 GMT
+  recorded_at: Sat, 20 Nov 2021 21:26:38 GMT
 recorded_with: VCR 6.0.0

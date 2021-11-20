@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Hourly do
+RSpec.describe Hour do
   it 'creates a hourly poro' do
     hourly_data = {
                     dt: 1637082000,
@@ -14,7 +14,7 @@ RSpec.describe Hourly do
                 }
     location = 'Denver,CO'
 
-    hourly = Hourly.new(hourly_data)
+    hourly = Hour.new(hourly_data)
 
     expect(hourly.time).to eq('10:00')
     expect(hourly.temperature).to eq(291.18)

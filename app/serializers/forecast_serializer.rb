@@ -1,13 +1,13 @@
 class ForecastSerializer
   class << self
-    def serialize(weather_data)
+    def serialize(data)
       { data: {
               id: nil,
               type: 'forecast',
               attributes: {
-                  current_weather: weather_data[:current],
-                  daily_weather: weather_data[:daily],
-                  hourly_weather: weather_data[:hourly]
+                  current_weather: data[0],
+                  daily_weather: data[1],
+                  hourly_weather: data[2]
                           }
               }
       }
@@ -16,3 +16,14 @@ class ForecastSerializer
     end
   end
 end
+# def serialize(@current, @hour, @day)
+#   { data: {
+#           id: nil,
+#           type: 'forecast',
+#           attributes: {
+#               current_weather: @current,
+#               daily_weather: @day,
+#               hourly_weather: @hour
+#                       }
+#           }
+#   }

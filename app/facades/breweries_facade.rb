@@ -15,7 +15,6 @@ class BreweriesFacade
     end
 
     def attributes(weather_data, brewery_params, brewery_data)
-      # null = nil
       {
         data: {
                 id: nil,
@@ -30,7 +29,7 @@ class BreweriesFacade
     end
 
     def forecast(weather_data)
-      current_weather = weather_data[:current_weather]
+      current_weather = weather_data[0]
       {
         summary: current_weather.conditions,
         temperature: "#{current_weather.temperature} F"

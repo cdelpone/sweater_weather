@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Daily do
+RSpec.describe Day do
   it 'creates a daily poro' do
     daily_data = {
                     dt: 1637085600,
@@ -19,7 +19,7 @@ RSpec.describe Daily do
                   }
     location = 'Denver,CO'
 
-    daily = Daily.new(daily_data)
+    daily = Day.new(daily_data)
 
     expect(daily.date).to eq('2021-11-16')
     expect(daily.sunrise).to eq('2021-11-16 06:46:09.000000000 -0700')
