@@ -14,10 +14,13 @@ RSpec.describe 'WeatherFacade', :vcr do
       expect(weather_data.size).to eq(3)
     end
 
-    it 'creates poros' do
+    it 'creates an array of poros' do
       collection = WeatherFacade.weather_collection(@weather_data)
       expect(collection).to be_an Array
       expect(collection.size).to eq(3)
+      expect(collection[0]).to be_a Current
+      expect(collection[1]).to eq()
+      expect(collection[2]).to eq()
     end
 
    it 'hourly_weather' do

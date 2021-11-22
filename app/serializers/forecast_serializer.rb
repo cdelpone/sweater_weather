@@ -17,13 +17,9 @@ class ForecastSerializer
   end
 end
 # def serialize(@current, @hour, @day)
-#   { data: {
-#           id: nil,
-#           type: 'forecast',
-#           attributes: {
+#   { data: { id: nil,
+#             type: 'forecast',
+#             attributes: {
 #               current_weather: @current,
 #               daily_weather: @day,
-#               hourly_weather: @hour
-#                       }
-#           }
-#   }
+#               hourly_weather: @hour } } }
