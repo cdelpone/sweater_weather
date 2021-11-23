@@ -35,4 +35,40 @@ RSpec.describe 'WeatherFacade', :vcr do
      expect(daily_objects).to be_an Array
      expect(daily_objects.first).to be_a Day
    end
+
+   it 'returns objects' do
+     # expect(result).to have_key :current_weather
+     # expect(result[:current_weather]).to be_a Current
+     # current = result[:current_weather]
+     # expect(current.conditions).to be_a String
+     # expect(current.datetime).to be_a Time
+     # expect(current.feels_like).to be_a Float
+     # expect(current.humidity).to be_a Numeric
+     # expect(current.icon).to be_a String
+     # expect(current.sunrise).to be_a Time
+     # expect(current.sunset).to be_a Time
+     # expect(current.temperature).to be_a Float
+     # expect(current.uvi).to be_a Numeric
+     # expect(current.visibility).to be_a Numeric
+     #
+     # expect(result).to have_key :hourly_weather
+     # expect(result[:hourly_weather]).to be_an Array
+     # hourly = result[:hourly_weather][0]
+     # expect(hourly.conditions).to be_a String
+     # expect(hourly.time).to be_a String
+     # expect(hourly.icon).to be_a String
+     # expect(hourly.temperature).to be_a Float
+     #
+     # expect(result).to have_key :daily_weather
+     # expect(result[:daily_weather]).to be_an Array
+     # daily = result[:daily_weather][0]
+     # expect(daily.conditions).to be_a String
+     # expect(daily.date).to be_a String
+     # expect(daily.icon).to be_a String
+     # expect(daily.max_temp).to be_a Float
+     # expect(daily.min_temp).to be_a Float
+     # expect(daily.sunrise).to be_a Time
+     # expect(daily.sunset).to be_a Time
+   end
+
 end

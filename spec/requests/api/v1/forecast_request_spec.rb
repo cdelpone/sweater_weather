@@ -57,24 +57,9 @@ RSpec.describe 'ForecastController', :vcr do
     expect(@daily_weather).to have_key(:max_temp)
     expect(@daily_weather).to have_key(:conditions)
     expect(@daily_weather).to have_key(:icon)
-
-
   end
 
-  it 'does not return unnecessary data' do
-    expect(@current_weather).not_to have_key(:weather)
-    expect(@hourly_weather).not_to have_key(:weather)
-    expect(@daily_weather).not_to have_key(:temperature)
-    expect(@daily_weather).not_to have_key(:feels_like)
-    expect(@daily_weather).not_to have_key(:weather)
-    expect(@forecast_data).not_to have_key(:minutely)
-    expect(@forecast_data).not_to have_key(:lat)
-    expect(@forecast_data).not_to have_key(:lon)
-    expect(@forecast_data).not_to have_key(:timezone)
-    expect(@forecast_data).not_to have_key(:timezone_offset)
-  end
-
-  it 'returns objects' do
+  it 'returns expected key values' do
     # expect(result).to have_key :current_weather
     # expect(result[:current_weather]).to be_a Current
     # current = result[:current_weather]
@@ -109,5 +94,18 @@ RSpec.describe 'ForecastController', :vcr do
     # expect(daily.min_temp).to be_a Float
     # expect(daily.sunrise).to be_a Time
     # expect(daily.sunset).to be_a Time
+  end
+
+  it 'does not return unnecessary data' do
+    expect(@current_weather).not_to have_key(:weather)
+    expect(@hourly_weather).not_to have_key(:weather)
+    expect(@daily_weather).not_to have_key(:temperature)
+    expect(@daily_weather).not_to have_key(:feels_like)
+    expect(@daily_weather).not_to have_key(:weather)
+    expect(@forecast_data).not_to have_key(:minutely)
+    expect(@forecast_data).not_to have_key(:lat)
+    expect(@forecast_data).not_to have_key(:lon)
+    expect(@forecast_data).not_to have_key(:timezone)
+    expect(@forecast_data).not_to have_key(:timezone_offset)
   end
 end
