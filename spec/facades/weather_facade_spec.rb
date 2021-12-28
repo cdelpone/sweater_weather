@@ -19,8 +19,10 @@ RSpec.describe 'WeatherFacade', :vcr do
       expect(collection).to be_an Array
       expect(collection.size).to eq(3)
       expect(collection[0]).to be_a Current
-      expect(collection[1]).to eq()
-      expect(collection[2]).to eq()
+      expect(collection[1]).to be_an Array
+      expect(collection[1].first).to be_a Day
+      expect(collection[2]).to be_an Array
+      expect(collection[2].first).to be_an Hour
     end
 
    it 'hourly_weather' do
