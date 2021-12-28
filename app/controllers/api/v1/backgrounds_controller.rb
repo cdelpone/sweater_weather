@@ -1,7 +1,7 @@
 class Api::V1::BackgroundsController < ApplicationController
   def index
-    ImagesService.image_data(background_params)
-    require "pry"; binding.pry
+    image = BackgroundFacade.image_data(background_params)
+    # render json: BackgroundSerializer.serialize(image)
   end
 
   private
