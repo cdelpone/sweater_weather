@@ -6,9 +6,11 @@ RSpec.describe 'BackgroundsController', :vcr do
 
   it 'makes a successful call' do
     location = 'Denver,CO'
-    get "/api/v1/backgrounds?location=#{location}"
     # @background_params = { location: 'Denver,CO' }
-    # @image_data = JSON.parse(response.body, symbolize_names: true)
+    get "/api/v1/backgrounds?location=#{location}"
+    
+    # stuff = JSON.parse(response.body, symbolize_names: true)
+    # expect(page.status_code).to eq 200
     expect(response).to be_successful
     expect(response).to be 200
   end
@@ -16,8 +18,9 @@ RSpec.describe 'BackgroundsController', :vcr do
   it 'gives credit' do
     # When displaying a photo from Unsplash, your application must attribute
     # Unsplash,
-    # the Unsplash photographer, and
+    # the Unsplash photographer,
     # contain a link back to their Unsplash profile.
+
     # Photo by Annie Spratt on Unsplash
     # photpgrapher profile link:  # https://unsplash.com/@anniespratt?utm_source=your_app_name&utm_medium=referral
     # Unsplash link:  # https://unsplash.com/?utm_source=your_app_name&utm_medium=referral
@@ -39,9 +42,9 @@ RSpec.describe 'BackgroundsController', :vcr do
     #         "location": "denver,co",
     #         "image_url": "https://pixabay.com/get/54e6d4444f50a814f1dc8460962930761c38d6ed534c704c7c2878dd954dc451_640.jpg",
     #         "credit": {
-    #           "source": "pixabay.com",
-    #           "author": "quinntheislander",
-    #           "logo": "https://pixabay.com/static/img/logo_square.png"
+    #           "source": "https://unsplash.com/?utm_source=your_app_name&utm_medium=referral",
+    #           "photographer": "John Smith",
+    #           "photographer_profile_link": "https://unsplash.com/@johnsmith?utm_source=your_app_name&utm_medium=referral"
     #         }
     #       }
     #     }

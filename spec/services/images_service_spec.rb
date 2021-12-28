@@ -1,4 +1,8 @@
 require 'rails_helper'
+# testing guide:
+# - test structure of the response from the api
+        # 1. what comes back from the service call (keys)
+        # 2. format (place) of what comes back from the service call
 
 RSpec.describe 'ImagesService', :vcr do
   before :each do

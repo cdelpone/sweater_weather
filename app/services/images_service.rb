@@ -5,7 +5,7 @@ class ImagesService
 
       response = conn.get("/search/photos?page=1&per_page=1&query=#{location}") do |faraday|
         faraday.params['client_id'] = ENV['UNSPLASH_KEY']
-        faraday.params['query'] = location[:location]
+        # faraday.params['query'] = location[:location]
       end
 
       JSON.parse(response.body, symbolize_names: true)

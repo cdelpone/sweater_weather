@@ -1,11 +1,30 @@
 class Image
-  # attr_reader :latitude,
-  #             :longitude,
-  #             :provided_location
+  attr_reader :raw_url,
+              :photographer,
+              :photographer_profile_link,
+              :source
 
   def initialize(data)
-    # @latitude = data[:latitude]
-    # @longitude = data[:longitude]
-    # @provided_location = data[:provided_location]
+    @raw_url = data[:urls][:raw]
+    @photographer = data[:user][:name]
+    @photographer_profile_link = data[:user][:links][:html]
+    # @photographer_profile_link = photographer_profile_link
+    @source = source
+  end
+
+  # def user(data)
+  #   user = data[:user]
+  # end
+
+  # def photographer
+  #   user[:name]
+  # end
+  #
+  # def photographer_profile_link
+  #   @user[:links][:html]
+  # end
+
+  def source
+    "https://unsplash.com/"
   end
 end
