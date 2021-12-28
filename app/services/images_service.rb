@@ -1,11 +1,11 @@
 class ImagesService
   class << self
     def search_by_location(location)
-      conn = Faraday.new(url: 'https://api.unsplash.com')\
+      conn = Faraday.new(url: 'https://api.unsplash.com')
 
-      response = conn.get("/search/photos?page=1&per_page=1") do |faraday|
+      response = conn.get("/search/photos?page=1&per_page=1&query=#{location}") do |faraday|
         faraday.params['client_id'] = ENV['UNSPLASH_KEY']
-        faraday.params['query'] = location
+        faraday.params['query'] = location[:location]
       end
 
       JSON.parse(response.body, symbolize_names: true)
