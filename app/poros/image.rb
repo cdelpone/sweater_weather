@@ -8,21 +8,8 @@ class Image
     @raw_url = data[:urls][:raw]
     @photographer = data[:user][:name]
     @photographer_profile_link = data[:user][:links][:html]
-    # @photographer_profile_link = photographer_profile_link
     @source = source
   end
-
-  # def user(data)
-  #   user = data[:user]
-  # end
-
-  # def photographer
-  #   user[:name]
-  # end
-  #
-  # def photographer_profile_link
-  #   @user[:links][:html]
-  # end
 
   def source
     "https://unsplash.com/"
