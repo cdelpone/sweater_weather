@@ -7,8 +7,5 @@ class BackgroundFacade
 
       Image.new(results)
     end
-
-    # def image_obj(image)
-    # end
   end
 end

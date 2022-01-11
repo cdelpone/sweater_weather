@@ -8,7 +8,12 @@ RSpec.describe 'BackgroundFacade', :vcr do
 
   it 'returns an image object' do
     location = 'Denver,CO'
-    data = BackgroundFacade.image_data(location)
-    expect(data).to be_an Image
+    image = BackgroundFacade.image_data(location)
+
+    expect(image).to be_an Image
+    expect(image.source).to be_a String
+    expect(image.raw_url).to be_a String
+    expect(image.photographer).to be_a String
+    expect(image.photographer_profile_link).to be_a String
   end
 end
