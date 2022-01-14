@@ -3,9 +3,7 @@ class BackgroundFacade
     def image_data(location)
       image = ImagesService.search_by_location(location)
 
-      results = image[:results].first
-
-      Image.new(results)
+      Image.new(image, location)
     end
   end
 end

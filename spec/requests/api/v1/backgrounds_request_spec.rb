@@ -1,21 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe 'BackgroundsController', :vcr do
-  before :each do
-  end
-
   it 'makes a successful call' do
     location = 'Denver,CO'
-    # @background_params = { location: 'Denver,CO' }
+
     get "/api/v1/backgrounds?location=#{location}"
-    
-    # stuff = JSON.parse(response.body, symbolize_names: true)
-    # expect(page.status_code).to eq 200
+
+    image = JSON.parse(response.body, symbolize_names: true)
+
     expect(response).to be_successful
     expect(response).to be 200
   end
 
-  it 'gives credit' do
+  it 'returns a serialized image' do
+    location = 'Denver,CO'
+
+    get "/api/v1/backgrounds?location=#{location}"
+
+    image = JSON.parse(response.body, symbolize_names: true)
+
+    expect(image).to have_key[:data]
+    expect(image[:data]).to have_key[:id]
+    expect(image[:data]).to have_key[:type]
+    expect(image[:data][:type]).to eq("image")
+    expect(image[:data]).to have_key[:attributes]
+    expect(image[:data][:attributes]).to have_key[:raw_url]
+    expect(image[:data][:attributes]).to have_key[:source]
+    expect(image[:data][:attributes]).to have_key[:photographer]
+    expect(image[:data][:attributes]).to have_key[:photographer_profile_link]
+    expect(image[:data][:attributes]).to have_key[:location]
+    expect(image[:data][:attributes][:location]).to eq(location)
     # When displaying a photo from Unsplash, your application must attribute
     # Unsplash,
     # the Unsplash photographer,

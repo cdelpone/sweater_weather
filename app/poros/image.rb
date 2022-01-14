@@ -1,17 +1,24 @@
 class Image
-  attr_reader :raw_url,
-              :photographer,
-              :photographer_profile_link,
-              :source
+  attr_reader :id,
+              :raw_url,
+              :location,
+              :credit
 
-  def initialize(data)
+  def initialize(data, location)
     @raw_url = data[:urls][:raw]
-    @photographer = data[:user][:name]
-    @photographer_profile_link = data[:user][:links][:html]
-    @source = source
+    @location = location[:location]
+    @credit = {
+      photographer: data[:user][:name],
+      photographer_profile_link: data[:user][:links][:html],
+      source: source
+    }
   end
 
   def source
     "https://unsplash.com/"
+  end
+
+  def set_id(integer)
+    @id = integer
   end
 end
