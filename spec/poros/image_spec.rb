@@ -5,22 +5,25 @@ require 'rails_helper'
     # - test methods
 RSpec.describe Image do
   it 'creates an image poro' do
-    data = {
-            location: 'Denver, CO',
-            raw_url: "https://pixabay.com/get/54e6d4444f50a814f1dc8460962930761c38d6ed534c704c7c2878dd954dc451_640.jpg",
-            credit: {
-                     source: "https://unsplash.com/",
-                     photographer: "John Smith",
-                     photographer_profile_link: "https://unsplash.com/@johnsmith?utm_source=your_app_name&utm_medium=referral"
-                    }
-            }
-    # image1 = Image.new(data)
+    location = { location: 'Denver,CO' }
 
-    # expect(image1.location).to eq('Denver, CO')
-    # expect(image1.raw_url).to eq('https://pixabay.com/get/54e6d4444f50a814f1dc8460962930761c38d6ed534c704c7c2878dd954dc451_640.jpg')
-    # expect(image1.credit).to be_a Hash
-    # expect(image1.source).to eq("https://unsplash.com/")
-    # expect(image1.photographer).to eq("John Smith")
-    # expect(image1.photographer_profile_link).to eq("https://unsplash.com/@johnsmith?utm_source=your_app_name&utm_medium=referral")
+    data = {
+      :urls=> {
+        :raw=>"https://images.unsplash.com/photo-1634507307799-ace9b49840b7?ixid=MnwyNzY0MzR8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2NDIxMTY5NzM&ixlib=rb-1.2.1" },
+      :user=> {
+         :name=>"Dillon Wanner",
+         :links=> {
+           :html=>"https://unsplash.com/@dillydallying"}
+        }
+      }
+
+    image1 = Image.new(data, location)
+
+    expect(image1.location).to eq('Denver,CO')
+    expect(image1.raw_url).to eq('https://images.unsplash.com/photo-1634507307799-ace9b49840b7?ixid=MnwyNzY0MzR8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2NDIxMTY5NzM&ixlib=rb-1.2.1')
+    expect(image1.credit).to be_a Hash
+    expect(image1.credit[:source]).to eq("https://unsplash.com/")
+    expect(image1.credit[:photographer]).to eq("Dillon Wanner")
+    expect(image1.credit[:photographer_profile_link]).to eq("https://unsplash.com/@dillydallying")
   end
 end
