@@ -59,7 +59,7 @@ RSpec.describe 'ForecastController', :vcr do
     expect(@daily_weather).to have_key(:icon)
   end
 
-  it 'returns expected key values' do
+  it 'returns expected values and types' do
     # expect(result).to have_key :current_weather
     # expect(result[:current_weather]).to be_a Current
     # current = result[:current_weather]
