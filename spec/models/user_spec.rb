@@ -20,6 +20,10 @@ RSpec.describe User, type: :model do
 
   describe 'class methods' do
     it "should generate random api key for a user" do
+      user = User.create(email: 'pesto@fakeemail.com', password: 'password123', password_confirmation: 'password123')
+      random_key = User.api_key
+
+      expect(random_key.size).to eq(24)
     end
   end
 end
