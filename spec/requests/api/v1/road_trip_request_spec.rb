@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'RoadTripController', :vcr do
+RSpec.describe 'RoadTripController' do
   it 'makes a successful call' do
     rt_params = {
                   origin: "Denver,CO",
