@@ -64,6 +64,7 @@ body:
         }
       }
 ```
+<hr>
 ## Backgrounds
 Request:
 ```
@@ -91,6 +92,7 @@ body:
     }
 }
 ```
+<hr>
 ## Users
 Request:
 ```
@@ -118,6 +120,7 @@ body:
     }
 }
 ```
+<hr>
 ## Sessions
 Request:
 ```
@@ -145,3 +148,20 @@ body:
 }
 ```
 <hr>
+## RoadTrip
+Request:
+```
+POST /api/v1/road_trip
+Content-Type: application/json
+Accept: application/json
+{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
+```
+Example Response:
+```json
+body:
+Just you wait!
+```
