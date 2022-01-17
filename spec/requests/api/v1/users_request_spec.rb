@@ -49,8 +49,35 @@ RSpec.describe 'User Requests' do
       post '/api/v1/users', params: {}
 
       expect(response).to have_http_status 422
-
       expect(response.body).to match(/Validation failed: Email can't be blank, Password confirmation can't be blank, Password digest can't be blank, Password can't be blank/)
+    end
+
+    it 'returns an error if params are missing' do
+      post '/api/v1/users/', params: { email: 'pesto@fakeemail.com' }
+
+      expect(response).to have_http_status 422
+      expect(response.body).to match(/Validation failed: Password confirmation can't be blank, Password digest can't be blank, Password can't be blank/)
+    end
+
+    it 'returns an error if email params are missing' do
+      post '/api/v1/users/', params: { password: 'password123', password_confirmation: 'password123' }
+
+      expect(response).to have_http_status 422
+      expect(response.body).to match(/Validation failed: Email can't be blank/)
+    end
+
+    it 'returns an error if password confirmation params are missing' do
+      post '/api/v1/users/', params: { email: 'pesto@fakeemail.com', password: 'password123' }
+
+      expect(response).to have_http_status 422
+      expect(response.body).to match(/Validation failed: Password confirmation can't be blank/)
+    end
+
+    it 'returns an error if params are incorrect' do
+      post '/api/v1/users/', params: { email: 'pesto@fakeemail.com', password_confirmation: 'password123' }
+
+      expect(response).to have_http_status 422
+      expect(response.body).to match(/Validation failed: Password confirmation doesn't match Password, Password digest can't be blank, Password can't be blank/)
     end
   end
 end

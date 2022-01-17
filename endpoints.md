@@ -101,7 +101,18 @@ body:
   }
 }
 ```
-
+```
+{
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+            "email": "pesto@fakeemail.com",
+            "api_key": "224c6351abfdb73b03e3a39f"
+        }
+    }
+}
+```
 <hr>
 
 ## User
