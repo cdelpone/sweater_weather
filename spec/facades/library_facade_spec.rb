@@ -22,10 +22,11 @@ RSpec.describe 'LibraryFacade', :vcr do
 
   it 'returns a book object' do
     location = 'Denver,CO'
-
-    books = LibraryFacade.books(location)
+    quantity = 5
+    books = LibraryFacade.books(location, quantity)
 
     expect(books.first).to be_a Book
+    expect(books.count).to eq(5)
 
     book1 = books.first
 
