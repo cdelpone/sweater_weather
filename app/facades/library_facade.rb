@@ -15,9 +15,4 @@ class LibraryFacade
       Book.new(data)
     end
   end
-
-  def self.forecast_data(location)
-    weather_data = WeatherFacade.get_weather_data(location)
-    weather_data.first
-  end
 end
