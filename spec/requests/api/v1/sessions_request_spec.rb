@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Session Requests' do
-  describe 'post /sessions' do
+  describe 'post api/v1/sessions' do
     it 'returns an existing user' do
       user = User.create(email: 'pesto@fakeemail.com', password: 'password123', password_confirmation: 'password123', api_key: '132w4tergydfiuxbjght')
       user_params = {

@@ -6,21 +6,12 @@ class ForecastSerializer
               id: nil,
               type: 'forecast',
               attributes: {
-                  current_weather: data[0],
-                  daily_weather: data[1],
-                  hourly_weather: data[2]
+                  current_weather: data[:current_weather],
+                  daily_weather: data[:daily_weather],
+                  hourly_weather: data[:hourly_weather]
                           }
               }
       }
-      #pass in objects to format for json
-      #current_weather.temperature
     end
   end
 end
-# def serialize(@current, @hour, @day)
-#   { data: { id: nil,
-#             type: 'forecast',
-#             attributes: {
-#               current_weather: @current,
-#               daily_weather: @day,
-#               hourly_weather: @hour } } }
