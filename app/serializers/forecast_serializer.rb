@@ -1,8 +1,8 @@
 class ForecastSerializer
-  # include JSONAPI::Serializer
   class << self
     def serialize(data)
-      { data: {
+      {
+        data: {
               id: nil,
               type: 'forecast',
               attributes: {
