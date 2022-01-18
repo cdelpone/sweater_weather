@@ -1,15 +1,17 @@
 class MapQuestFacade
   class << self
-    def get_lat_lng(location)
+    def lat_lon(location)
       location_data = mapquest_data(location)
 
       data =  {
-              latitude: location_data[:results][0][:locations][0][:latLng][:lat],
-              longitude: location_data[:results][0][:locations][0][:latLng][:lng],
-              provided_location: location_data[:results][0][:providedLocation][:location]
+              latitude: location_data[:locations][0][:latLng][:lat],
+              longitude: location_data[:locations][0][:latLng][:lng],
+              provided_location: location_data[:providedLocation][:location]
             }
+    end
 
-      Location.new(data)
+    def location_data(location)
+      Location.new(lat_lon(location))
     end
 
     def mapquest_data(location)
