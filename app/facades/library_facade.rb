@@ -8,11 +8,16 @@ class LibraryFacade
     books_data[:numFound]
   end
 
-  def self.books(location)
+  def self.books(location, quantity)
     books_data = books_data(location)
 
-    books_data[:docs].map do |data|
+    books_data[:docs][1..(quantity.to_i)].map do |data|
       Book.new(data)
     end
+  end
+
+  def self.forecast_data(location)
+    weather_data = WeatherFacade.get_weather_data(location)
+    weather_data.first
   end
 end
