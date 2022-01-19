@@ -15,14 +15,18 @@ class RoadTripSerializer
       }
     end
 
-  def impossible_route(data)
-    if data.travel_time == "Impossible route"
-        { }
-    else
-      {
-        temperature: data.weather_at_eta[:temperature],
-        conditions: data.weather_at_eta[:conditions]
-      }
+    def errors
+      { "errors": "Unauthorized" }
+    end
+
+    def impossible_route(data)
+      if data.travel_time == "Impossible route"
+          { }
+      else
+        {
+          temperature: data.weather_at_eta[:temperature],
+          conditions: data.weather_at_eta[:conditions]
+        }
       end
     end
   end

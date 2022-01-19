@@ -46,8 +46,8 @@ RSpec.describe 'RoadTripController', :vcr do
     road_trip = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq(401)
-    expect(road_trip).to have_key :message
-    expect(road_trip[:message]).to eq("Invalid credentials; please try again.")
+    expect(road_trip).to have_key :errors
+    expect(road_trip[:errors]).to eq("Unauthorized")
   end
 
   it 'returns an error message if the api key is missing' do
@@ -63,8 +63,8 @@ RSpec.describe 'RoadTripController', :vcr do
     road_trip = JSON.parse(response.body, symbolize_names: true)
 
     expect(response.status).to eq(401)
-    expect(road_trip).to have_key :message
-    expect(road_trip[:message]).to eq("Invalid credentials; please try again.")
+    expect(road_trip).to have_key :errors
+    expect(road_trip[:errors]).to eq("Unauthorized")
   end
 
   it 'sends route is impossible for travel time' do
