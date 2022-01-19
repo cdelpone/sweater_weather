@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users, only: :create
       resources :road_trip, only: :create
       resources :sessions, only: [:create, :destroy]
+      get '/book-search',  to: 'book_search#index', as: 'book-search'
     end
   end
 end
