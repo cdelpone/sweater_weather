@@ -17,8 +17,4 @@ class Image
   def source
     "https://unsplash.com/"
   end
-
-  def set_id(integer)
-    @id = integer
-  end
 end
