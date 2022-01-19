@@ -1,8 +1,5 @@
 require 'rails_helper'
-# testing guide:
-    # - just like testing a plain old ruby class (mod 1)
-    # - test attributes
-    # - test methods
+
 RSpec.describe Image do
   it 'creates an image poro' do
     location = { location: 'Denver,CO' }

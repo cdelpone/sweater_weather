@@ -19,7 +19,13 @@ class MapQuestFacade
     end
 
     def mapquest_travel_time(origin, destination)
-      MapQuestService.mapquest_directions_response(origin, destination)[:formattedTime]
+      time = MapQuestService.mapquest_directions_response(origin, destination)[:formattedTime]
+
+      if time != nil
+        time
+      else
+        "Impossible route"
+      end
     end
   end
 end

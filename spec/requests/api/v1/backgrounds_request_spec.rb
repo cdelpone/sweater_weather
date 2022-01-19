@@ -30,16 +30,4 @@ RSpec.describe 'BackgroundsController', :vcr do
     expect(image[:data][:attributes][:credit]).to have_key :photographer_profile_link
     expect(image[:data][:attributes][:location]).to eq(location)
   end
-
-  # it 'returns expected key value data types' do
-  # end
-
-  # it 'does not return unnecessary data' do
-  # end
 end
-
-# expect().to be_an Array
-# expect().to be_a Time
-# expect().to be_a Float
-# expect().to be_a Numeric
-# expect().to be_a String

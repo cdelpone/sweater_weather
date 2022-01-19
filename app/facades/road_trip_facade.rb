@@ -17,10 +17,7 @@ class RoadTripFacade
 
     def forecast_eta(origin, destination)
       hour = WeatherFacade.forecast_eta(origin, destination)
-      {
-        conditions: hour.conditions,
-        temperature: hour.temperature
-      }
+      { conditions: hour.conditions, temperature: hour.temperature }
     end
   end
 end
