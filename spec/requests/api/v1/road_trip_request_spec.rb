@@ -2,15 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'RoadTripController' do
   it 'makes a successful call' do
-    # user = User.create(email: 'pesto@fakeemail.com', password: 'password123', password_confirmation: 'password123', api_key: '132w4tergydfiuxbjght')
+    user = User.create!(email: 'pesto@fakeemail.com', password: 'password123', password_confirmation: 'password123', api_key: "jgn983hy48thw9begh98h4539h4")
 
     rt_params = {
                   origin: "Denver,CO",
                   destination: "Pueblo,CO",
-                  api_key: "jgn983hy48thw9begh98h4539h4"
+                  api_key: user.api_key
                 }
 
     post "/api/v1/road_trip", params: rt_params
+    asd = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
     expect(response.status).to be 200

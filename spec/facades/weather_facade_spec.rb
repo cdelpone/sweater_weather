@@ -37,4 +37,13 @@ RSpec.describe 'WeatherFacade', :vcr do
 
      expect(day.first).to be_a Day
    end
+
+   it 'returns one hour object' do
+     origin = 'Denver,CO'
+     destination = 'Redlands, CA'
+
+     hour_data = WeatherFacade.forecast_eta(origin, destination)
+
+     expect(hour_data).to be_a Hour
+   end
 end

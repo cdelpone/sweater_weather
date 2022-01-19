@@ -14,7 +14,7 @@ RSpec.describe 'MapQuestFacade', :vcr do
 
   it 'returns all location data' do
     location = 'Denver,CO'
-    mapquest_data = MapQuestFacade.mapquest_data(location)
+    mapquest_data = MapQuestFacade.mapquest_geocoding_data(location)
 
     expect(mapquest_data).to be_a Hash
   end
@@ -29,4 +29,21 @@ RSpec.describe 'MapQuestFacade', :vcr do
     expect(location_obj.provided_location).to be_a String
     expect(location_obj.provided_location).to eq(location)
   end
+
+  it 'returns travel time between two locations' do
+    origin = 'Denver,CO'
+    destination = 'Estes Park, CO'
+    travel_time = MapQuestFacade.mapquest_travel_time(origin, destination)
+
+    # expect(travel_time).to be_a Hash
+    expect(travel_time).to be_a String
+  end
+
+  # it 'formats travel time' do
+  #   origin = 'Denver,CO'
+  #   destination = 'redlands, CA'
+  #   travel_time = MapQuestFacade.rounded_travel_time(origin, destination)
+  #
+  #   expect(travel_time).to be_an Integer
+  # end
 end

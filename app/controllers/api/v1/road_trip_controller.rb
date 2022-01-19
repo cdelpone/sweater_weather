@@ -1,8 +1,14 @@
-class Api::V1::RoadTripsController < ApplicationController
+class Api::V1::RoadTripController < ApplicationController
   def create
-    rt = RoadTripFacade.rt_data(rt_params)
+    user = User.find_by(api_key: rt_params[:api_key])
 
-    render json: RoadTripSerializer.new(rt)
+    if user && rt_params[:api_key].present?
+      roadtrip_data = RoadTripFacade.travel_details(params[:origin], params[:destination])
+
+      render json: RoadTripSerializer.serialize(roadtrip_data, params[:origin], params[:destination])
+    else
+      "api key is missing!"
+    end
   end
 
   private
