@@ -1,7 +1,6 @@
 class RoadTripSerializer
   class << self
     def serialize(data, origin, destination)
-      require "pry"; binding.pry
       {
         data: {
           id: nil,
