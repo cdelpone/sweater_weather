@@ -12,7 +12,7 @@ RSpec.describe 'Session Requests' do
       body = JSON.parse(response.body, symbolize_names: true)
       attributes = body[:data][:attributes]
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:success) 
       expect(user.email).to eq 'pesto@fakeemail.com'
       expect(user.api_key).not_to be_empty
       expect(body[:data][:id]).to eq "#{user.id}"
@@ -23,17 +23,17 @@ RSpec.describe 'Session Requests' do
     end
 
     it 'returns an error if the user uses the wrong credentials' do
-      post '/api/v1/sessions/', params: { email: 'pesto@fakeemail.com', password: 'wrong password', }
+      post '/api/v1/sessions/', params: { email: 'pesto@fakeemail.com', password: 'wrong password' }
 
       expect(response).to have_http_status 422
-      expect(response.body).to match(/"Invalid credentials; please try again./)
-
+      expect(response.body).to match(/Invalid credentials; please try again./)
     end
+
     it 'returns an error if params are missing' do
       post '/api/v1/sessions/', params: { email: 'pesto@fakeemail.com' }
 
       expect(response).to have_http_status 422
-      expect(response.body).to match(/"Invalid credentials; please try again./)
+      expect(response.body).to match(/Invalid credentials; please try again./)
     end
 
     it 'returns an error if params are missing' do

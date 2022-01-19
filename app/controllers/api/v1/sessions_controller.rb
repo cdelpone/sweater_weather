@@ -10,8 +10,4 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.verification_failed, status: 422
     end
   end
-
-  def destroy
-    session.clear
-  end
 end
