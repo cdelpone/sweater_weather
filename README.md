@@ -2,7 +2,6 @@
 
 ## Table of contents
 - [Overview](#overview)
-- [Schema](#schema)
 - [Setup](#setup)
 - [API Setup](#api-setup)
 - [Endpoints](#endpoints)
@@ -17,9 +16,6 @@ Exposes an API to satisfy requirements from a front end application.
 
 This project is based off Turing's Sweater Weather project. More details can be found [here](https://backend.turing.edu/module3/projects/sweater_weather/)
 
-### <ins>Schema</ins>
-<insert image>
-
 ### <ins>Setup</ins>
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
@@ -29,8 +25,9 @@ This project is based off Turing's Sweater Weather project. More details can be 
 ### <ins>API Setup</ins>
 1. Sign up for API keys from the following:
 - MapQuest Geocoding API [here](https://developer.mapquest.com/documentation/geocoding-api/)
-- Unsplash [here](link)
+- MapQuest Directions API [here](https://developer.mapquest.com/documentation/directions-api/)
 - OpenWeather One Call API [here](https://openweathermap.org/api/one-call-api)
+- Unsplash [here](https://unsplash.com/documentation)
 2. Set-up Figaro: `bundle exec figaro install`
 3. Navigate to /config/application.yml
 4. Paste the following code and replace 'YOUR-API-KEY' with your respective credentials:
