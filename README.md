@@ -29,19 +29,15 @@ This project is based off Turing's Sweater Weather project. More details can be 
 ### <ins>API Setup</ins>
 1. Sign up for API keys from the following:
 - MapQuest Geocoding API [here](https://developer.mapquest.com/documentation/geocoding-api/)
-- Unsplash[here](link)
+- Unsplash [here](link)
 - OpenWeather One Call API [here](https://openweathermap.org/api/one-call-api)
 2. Set-up Figaro: `bundle exec figaro install`
 3. Navigate to /config/application.yml
-4. Paste the following code and replace 'YOUR-API-KEY' with your Lob keys and Google Civic Information API key:
-4. Paste the following code and replace with your respective credentials:
+4. Paste the following code and replace 'YOUR-API-KEY' with your respective credentials:
   ```
-  GOOGLE_CLIENT_ID: 'YOUR-GOOGLE-CLIENT-ID'
-  GOOGLE_CLIENT_SECRET: 'YOUR-GOOGLE-CLIENT-SECRET'
-  BASE_URL: http://localhost:5000
-  LOB_TEST_API_KEY: 'YOUR-API-KEY'
-  LOB_LIVE_API_KEY: 'YOUR-API-KEY'
-  google_key: 'YOUR-API-KEY'
+  MAPQUEST_KEY: 'YOUR-API-KEY'
+  OPEN_WEATHER_KEY: 'YOUR-API-KEY'
+  UNSPLASH_KEY: 'YOUR-API-KEY'
   ```
 
 ### <ins>Endpoints</ins>
