@@ -4,10 +4,9 @@ class Api::V1::RoadTripController < ApplicationController
 
     if user && rt_params[:api_key].present?
       roadtrip_data = RoadTripFacade.travel_details(params[:origin], params[:destination])
-
-      render json: RoadTripSerializer.serialize(roadtrip_data, params[:origin], params[:destination])
+      render json: RoadTripSerializer.serialize(roadtrip_data)
     else
-      "api key is missing!"
+      render json: { errors: "Invalid credentials" }
     end
   end
 

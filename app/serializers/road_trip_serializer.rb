@@ -1,17 +1,17 @@
 class RoadTripSerializer
   class << self
-    def serialize(data, origin, destination)
+    def serialize(data)
       {
         data: {
           id: nil,
           type: 'roadtrip',
           attributes: {
-            start_city: origin,
-            end_city: destination,
-            travel_time: travel_time(data),
+            start_city: data.start_city,
+            end_city: data.end_city,
+            travel_time: data.travel_time,
             weather_eta: {
-              temperature: weather_eta(data).temperature,
-              conditions: weather_eta(data).conditions
+              temperature: data.weather_at_eta[:temperature],
+              conditions: data.weather_at_eta[:conditions]
             }
           }
         }

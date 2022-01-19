@@ -9,16 +9,14 @@ RSpec.describe 'RoadTripController' do
                   api_key: user.api_key
                 }
     headers = { CONTENT_TYPE: "application/json", Accept: "application/json" }
-    post "/api/v1/road_trip", headers: headers, params: rt_params.to_json
-    require "pry"; binding.pry
 
-    asd = JSON.parse(response.body, symbolize_names: true)
+    post "/api/v1/road_trip", headers: headers, params: rt_params.to_json
 
     expect(response).to be_successful
     expect(response.status).to be 200
   end
 
-  xit 'returns the expected rt info' do
+  it 'returns the expected rt info' do
     rt_params = {
                   origin: "Denver,CO",
                   destination: "Pueblo,CO",

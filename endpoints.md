@@ -65,6 +65,7 @@ body:
       }
 ```
 <hr>
+
 ## Backgrounds
 Request:
 ```
@@ -93,6 +94,7 @@ body:
 }
 ```
 <hr>
+
 ## Users
 Request:
 ```
@@ -121,6 +123,7 @@ body:
 }
 ```
 <hr>
+
 ## Sessions
 Request:
 ```
@@ -148,6 +151,7 @@ body:
 }
 ```
 <hr>
+
 ## RoadTrip
 Request:
 ```
@@ -162,6 +166,21 @@ Accept: application/json
 ```
 Example Response:
 ```json
+status: 200
 body:
-Just you wait!
+{
+    "data": {
+        "id": null,
+        "type": "roadtrip",
+        "attributes": {
+            "start_city": "Denver,CO",
+            "end_city": "Pueblo,CO",
+            "travel_time": "01:45:23",
+            "weather_eta": {
+                "temperature": 39.51,
+                "conditions": "clear sky"
+            }
+        }
+    }
+}
 ```
